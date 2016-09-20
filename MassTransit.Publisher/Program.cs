@@ -19,6 +19,7 @@ namespace MassTransit.Publisher
             string rabbitMqQueue = "mycompany.domains.queues";
             Uri rabbitMqRootUri = new Uri(rabbitMqAddress);
 
+            // Create a Service Bus object
             IBusControl control = Bus.Factory.CreateUsingRabbitMq(
                 rbt =>
                 {
@@ -48,7 +49,6 @@ namespace MassTransit.Publisher
                     DefaultDiscount = 0
                 }
             );
-
 
             Console.ReadKey();
         }
