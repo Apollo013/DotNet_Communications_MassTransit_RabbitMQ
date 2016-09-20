@@ -1,20 +1,20 @@
-﻿using MassTransit.Client.Services;
+﻿using MassTransit.Client.Management.EventHandlers;
 using MassTransit.Company.Configuration;
 using MassTransit.RabbitMqTransport;
 using System;
 
-namespace MassTransit.Client
+namespace MassTransit.Client.Management
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Title = "Receiver.";
-            Console.WriteLine("CUSTOMER REGISTRATION COMMAND RECEIVER.");
-            RunTransitReceiver();
+            Console.Title = "Management Receiver.";
+            Console.WriteLine("MANAGEMENT CUSTOMER REGISTRATION EVENT RECEIVER.");
+            RunTransitEventReceiver();
         }
 
-        private static void RunTransitReceiver()
+        private static void RunTransitEventReceiver()
         {
             // Create service bus controller
             // This will listen for commands on the queue called 'mycompany.domains.queues'
@@ -36,7 +36,7 @@ namespace MassTransit.Client
                         ConnectionProperties.EndPoint,
                         cfgr =>
                         {
-                            cfgr.Consumer<RegisterCustomerService>();
+                            cfgr.Consumer<CustomerRegisteredHandler>();
                         }
                     );
                 }
@@ -45,7 +45,7 @@ namespace MassTransit.Client
             // Start listening
             control.Start();
 
-            // Wait for commands
+            // Wait for triggered events
             Console.ReadKey();
 
             // Stop Listening

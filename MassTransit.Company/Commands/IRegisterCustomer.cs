@@ -3,7 +3,7 @@
 namespace MassTransit.Company.Commands
 {
     /// <summary>
-    /// Message contract for registering a new customer
+    /// Command message contract for registering a new customer
     /// </summary>
     public interface IRegisterCustomer
     {
