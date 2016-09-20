@@ -30,7 +30,7 @@ namespace MassTransit.Client.Sales
                         }
                     );
 
-                    // Register the consumer service - 'RegisterCustomerService' with the Service Bus
+                    // Register the consumer service - 'CustomerRegisteredHandler' with the Service Bus
                     rbt.ReceiveEndpoint(
                         host,
                         ConnectionProperties.EndPoint,
