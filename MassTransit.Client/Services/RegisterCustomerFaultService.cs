@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace MassTransit.Client.Services
 {
+    /// <summary>
+    /// Fault Handler
+    /// </summary>
     public class RegisterCustomerFaultService : IConsumer<Fault<IRegisterCustomer>>
     {
         public Task Consume(ConsumeContext<Fault<IRegisterCustomer>> context)

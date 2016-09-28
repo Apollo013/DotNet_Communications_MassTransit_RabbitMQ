@@ -13,12 +13,14 @@ namespace MassTransit.Client
         {
             Console.Title = "Receiver.";
             Console.WriteLine("CUSTOMER REGISTRATION COMMAND RECEIVER.");
-            RunTransitReceiver();
-            // RunTransitFaultReceiver();
+            //RunTransitReceiver();
+            RunTransitFaultReceiver();
         }
 
         private static void RunTransitReceiver()
         {
+            // RunTransitFaultReceiver();
+
             // IoC - Register Repository
             var container = new Container(conf =>
             {
@@ -48,7 +50,7 @@ namespace MassTransit.Client
                             cfgr.Consumer<RegisterCustomerService>(container);
 
                             /******* THE FOLLOWING RETRY POLICIES ARE BASED ON THE OCCURANCE OF EXCEPTIONS ******/
-                            //cfgr.UseRetry(Retry.Immediate(5));                                        // Retry 5 times in the event of any exception, before sending to 'error' queue
+                            cfgr.UseRetry(Retry.Immediate(1));                                        // Retry 5 times in the event of any exception, before sending to 'error' queue
                             //cfgr.UseRetry(Retry.Except(typeof(ArgumentException)).Immediate(5));      // Retry 5 times Except in the event of an 'ArgumentException'
                             //cfgr.UseRetry(Retry.Selected(typeof(ArgumentException)).Immediate(5));    // Retry 5 times Only in the event of an 'ArgumentException'
                             //cfgr.UseRetry(Retry.All().Immediate(5));                                  // Retry 5 times in the event of any exception
@@ -100,16 +102,15 @@ namespace MassTransit.Client
                         }
                     );
 
-
-
-                    // Register the consumer service - 'RegisterCustomerFaultService' with the Service Bus
+                    // Register the consumer services - 'RegisterCustomerService' & 'RegisterCustomerFaultService' with the Service Bus
                     rbt.ReceiveEndpoint(
                         host,
-                        ConnectionProperties.FaultEndPoint,
+                        ConnectionProperties.EndPoint,
                         cfgr =>
                         {
+                            cfgr.Consumer<RegisterCustomerService>(container);
                             cfgr.Consumer<RegisterCustomerFaultService>();
-                            //cfgr.UseRetry(Retry.Interval(5, TimeSpan.FromSeconds(5)));
+                            cfgr.UseRetry(Retry.Immediate(1));
                         }
                     );
                 }
