@@ -12,7 +12,8 @@ namespace MassTransit.Publisher
         {
             Console.Title = "Publisher.";
             Console.WriteLine("CUSTOMER REGISTRATION COMMAND PUBLISHER.");
-            RunTransitPublisher();
+            //RunTransitPublisher();
+            RunTransitFaultPublisher();
         }
 
         private static void RunTransitPublisher()
@@ -48,6 +49,45 @@ namespace MassTransit.Publisher
                     Type = 1,
                     DefaultDiscount = 0
                 }
+            );
+
+            Console.ReadKey();
+        }
+
+        private static void RunTransitFaultPublisher()
+        {
+            // Create service bus controller
+            IBusControl control = Bus.Factory.CreateUsingRabbitMq(
+                rbt =>
+                {
+                    rbt.Host(
+                        ConnectionProperties.HostUri,
+                        settings =>
+                        {
+                            settings.Username(ConnectionProperties.UserName);
+                            settings.Password(ConnectionProperties.Password);
+                        }
+                    );
+                }
+            );
+
+            // Create a task that allows us to send the command to a specified queue.
+            Task<ISendEndpoint> sendEndpointTask = control.GetSendEndpoint(new Uri($"{ConnectionProperties.HostAddress}/{ConnectionProperties.EndPoint}"));
+            ISendEndpoint sendEndPoint = sendEndpointTask.Result;
+
+            // Send command
+            Task sendTask = sendEndPoint.Send<IRegisterCustomer>(
+                new
+                {
+                    Address = "New Street",
+                    Id = Guid.NewGuid(),
+                    Preferred = true,
+                    RegisteredDate = DateTime.UtcNow,
+                    Name = "Nice people LTD",
+                    Type = 1,
+                    DefaultDiscount = 0
+                },
+                callback => callback.FaultAddress = new Uri($"{ConnectionProperties.HostAddress}/{ConnectionProperties.FaultEndPoint}")
             );
 
             Console.ReadKey();

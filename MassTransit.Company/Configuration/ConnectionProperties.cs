@@ -10,5 +10,7 @@ namespace MassTransit.Company.Configuration
         public static string EndPoint { get { return ConfigurationManager.AppSettings["endpoint"]; } }
         public static string UserName { get { return ConfigurationManager.AppSettings["username"]; } }
         public static string Password { get { return ConfigurationManager.AppSettings["password"]; } }
+        public static string FaultEndPoint { get { return ConfigurationManager.AppSettings["faultEndpoint"]; } }
+
     }
 }

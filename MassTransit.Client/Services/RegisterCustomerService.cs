@@ -29,6 +29,7 @@ namespace MassTransit.Client.Services
             IRegisterCustomer customer = context.Message;
             Console.WriteLine($"New Customer for registration: {customer.Name}");
 
+            throw new ArgumentException("We'll pretend that an exception was thrown...");
 
             // Save customer to dummy db
             _customerRepository.Save(new Customer(customer.Id, customer.Name, customer.Address)
@@ -38,8 +39,6 @@ namespace MassTransit.Client.Services
                 RegisteredDate = customer.RegisteredDate,
                 Type = customer.Type
             });
-
-            // throw new ArgumentException("We pretend that an exception was thrown...");
 
             // Raise an event in response to the command being executed
             context.Publish<ICustomerRegistered>(
@@ -51,7 +50,6 @@ namespace MassTransit.Client.Services
                     Name = customer.Name
                 }
             );
-
 
             return Task.FromResult(context.Message);
         }
