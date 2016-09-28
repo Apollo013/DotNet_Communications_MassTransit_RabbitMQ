@@ -1,6 +1,8 @@
 ﻿using MassTransit.Client.Services;
 using MassTransit.Company.Configuration;
+using MassTransit.Company.Repositories;
 using MassTransit.RabbitMqTransport;
+using StructureMap;
 using System;
 
 namespace MassTransit.Client
@@ -16,6 +18,12 @@ namespace MassTransit.Client
 
         private static void RunTransitReceiver()
         {
+            // IoC
+            var container = new Container(conf =>
+            {
+                conf.For<ICustomerRepository>().Use<CustomerRepository>();
+            });
+
             // Create service bus controller
             // This will listen for commands on the queue called 'mycompany.domains.queues'
             IBusControl control = Bus.Factory.CreateUsingRabbitMq(
@@ -36,7 +44,7 @@ namespace MassTransit.Client
                         ConnectionProperties.EndPoint,
                         cfgr =>
                         {
-                            cfgr.Consumer<RegisterCustomerService>();
+                            cfgr.Consumer<RegisterCustomerService>(container);
                         }
                     );
                 }
