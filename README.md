@@ -1,5 +1,6 @@
 # DotNet_Communications_MassTransit_RabbitMQ
-This app demonstrates an Enterprise Service Bus implementation using MassTransit for connecting distributed systems
+This app demonstrates a 'light-weight' Enterprise Service Bus implementation using MassTransit for connecting distributed systems
+
 ---
 
 Developed with Visual Studio 2015 Community
@@ -16,8 +17,9 @@ Developed with Visual Studio 2015 Community
 ---
 
 ###Features
+|Feature|Description|
 |-----|------|
-|Dependency Injection| Injection of a 'dummy' repository|
+| Dependency Injection | Injection of a 'dummy' repository |
 
 ---
 
