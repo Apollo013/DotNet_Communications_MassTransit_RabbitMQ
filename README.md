@@ -17,9 +17,12 @@ Developed with Visual Studio 2015 Community
 ---
 
 ###Features
-|Feature|Description|
-|-----|------|
-| Dependency Injection | Injection of a 'dummy' repository |
+|Feature|
+|-------|
+| Publishing strongly typed messages |
+| Dependency Injection with injection of a 'dummy' repository |
+| Retry policies |
+| Fault handling |
 
 ---
 
