@@ -27,6 +27,15 @@ Developed with Visual Studio 2015 Community
 
 ---
 
+###Project Layout
+|Project|Description|
+|-------|-----------|
+|MassTransit.Company| Contains our message contracts (command & event), a dummy repository and connection properties class |
+|MassTransit.Publisher| Responisble for publishing messages to all receivers |
+|MassTransit.Client.?| Clients who receive and handle the messages |
+
+---
+
 ###Resources
 |Title|Author|Website|
 |-----|------|-------|
