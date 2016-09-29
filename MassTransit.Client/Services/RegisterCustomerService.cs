@@ -29,7 +29,8 @@ namespace MassTransit.Client.Services
             IRegisterCustomer customer = context.Message;
             Console.WriteLine($"New Customer for registration: {customer.Name}");
 
-            throw new ArgumentException("We'll pretend that an exception was thrown...");  // COMMENT TO AVOID FURTHER EXCEPTION THROWING
+            // The following is only used to test retry policies
+            // throw new ArgumentException("We'll pretend that an exception was thrown...");  // COMMENT TO AVOID FURTHER EXCEPTION THROWING
 
             // Save customer to dummy db
             _customerRepository.Save(new Customer(customer.Id, customer.Name, customer.Address)

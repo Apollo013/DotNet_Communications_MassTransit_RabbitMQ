@@ -5,7 +5,7 @@ namespace MassTransit.Company.Commands
     /// <summary>
     /// Command message contract for registering a new customer
     /// </summary>
-    public interface IRegisterCustomer
+    public interface IRegisterCustomer : IRegisterDomain
     {
         Guid Id { get; }
         DateTime RegisteredDate { get; }

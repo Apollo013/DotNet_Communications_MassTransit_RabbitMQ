@@ -13,8 +13,8 @@ namespace MassTransit.Client
         {
             Console.Title = "Receiver.";
             Console.WriteLine("CUSTOMER REGISTRATION COMMAND RECEIVER.");
-            //RunTransitReceiver();
-            RunTransitFaultReceiver();
+            RunTransitReceiver();
+           // RunTransitFaultReceiver();
         }
 
         private static void RunTransitReceiver()
@@ -48,9 +48,10 @@ namespace MassTransit.Client
                         cfgr =>
                         {
                             cfgr.Consumer<RegisterCustomerService>(container);
+                            cfgr.Consumer<RegisterDomainService>();
 
                             /******* THE FOLLOWING RETRY POLICIES ARE BASED ON THE OCCURANCE OF EXCEPTIONS ******/
-                            cfgr.UseRetry(Retry.Immediate(1));                                        // Retry 5 times in the event of any exception, before sending to 'error' queue
+                            //cfgr.UseRetry(Retry.Immediate(5));                                        // Retry 5 times in the event of any exception, before sending to 'error' queue
                             //cfgr.UseRetry(Retry.Except(typeof(ArgumentException)).Immediate(5));      // Retry 5 times Except in the event of an 'ArgumentException'
                             //cfgr.UseRetry(Retry.Selected(typeof(ArgumentException)).Immediate(5));    // Retry 5 times Only in the event of an 'ArgumentException'
                             //cfgr.UseRetry(Retry.All().Immediate(5));                                  // Retry 5 times in the event of any exception

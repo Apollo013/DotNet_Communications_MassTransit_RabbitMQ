@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\IRegisterCustomer.cs" />
+    <Compile Include="Commands\IRegisterDomain.cs" />
     <Compile Include="Configuration\ConnectionProperties.cs" />
     <Compile Include="Events\ICustomerRegistered.cs" />
     <Compile Include="Models\Customer.cs" />

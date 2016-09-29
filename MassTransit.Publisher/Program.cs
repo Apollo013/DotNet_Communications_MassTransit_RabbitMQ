@@ -12,8 +12,8 @@ namespace MassTransit.Publisher
         {
             Console.Title = "Publisher.";
             Console.WriteLine("CUSTOMER REGISTRATION COMMAND PUBLISHER.");
-            //RunTransitPublisher();
-            RunTransitFaultPublisher();
+            RunTransitPublisher();
+            //RunTransitFaultPublisher();
         }
 
         private static void RunTransitPublisher()
@@ -47,7 +47,9 @@ namespace MassTransit.Publisher
                     RegisteredDate = DateTime.UtcNow,
                     Name = "A Company Ltd.",
                     Type = 1,
-                    DefaultDiscount = 0
+                    DefaultDiscount = 0,
+                    Target = "Customers",
+                    Importance = 1
                 }
             );
 
