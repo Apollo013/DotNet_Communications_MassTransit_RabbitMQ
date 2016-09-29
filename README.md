@@ -19,6 +19,7 @@ Developed with Visual Studio 2015 Community
 ###Features
 |Feature|
 |-------|
+| Command & Event message types |
 | Publishing strongly typed messages |
 | Dependency Injection with injection of a 'dummy' repository |
 | Retry policies |
