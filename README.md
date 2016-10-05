@@ -65,7 +65,7 @@ To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomS
 
 |Observer|Type|Description|Demo|
 |--------|----|-----------|----|
-|ISendObserver|Publisher-based|intercept published and sent messages of any message type (non generic).| No |
+|ISendObserver|Publisher-based|intercept published and sent messages of any message type (non generic).| Yes |
 |IPublishObserver|Publisher-based|intercept published and sent messages of any message type (non generic).| No |
 |IReceiveObserver|Consumer-based|intercept any received message of any concrete type| Yes |
 |IConsumeObserver|Consumer-based| intercept any consumed message of any concrete type | Yes |
