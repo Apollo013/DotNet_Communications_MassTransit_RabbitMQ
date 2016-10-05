@@ -15,7 +15,7 @@ For this exercise the sender sends a 'Command' message to a central client, who 
 
 ####Fault Handling
 
-To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomService' class and execute the 'RunTransitFaultPublisher' method from the sender 'Program'.
+To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomService' class and execute the 'RunTransitFaultPublisher' method from the 'MassTransit.Publisher.Program' class.
 
 ---
 
