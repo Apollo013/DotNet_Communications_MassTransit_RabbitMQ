@@ -1,5 +1,6 @@
 ﻿using MassTransit.Company.Commands;
 using MassTransit.Company.Configuration;
+using MassTransit.Publisher.Observers;
 using System;
 using System.Threading.Tasks;
 
@@ -32,6 +33,8 @@ namespace MassTransit.Publisher
                     );
                 }
             );
+
+            control.ConnectSendObserver(new SendObjectObserver());
 
             // Create a task that allows us to send the command to a specified queue.
             Task<ISendEndpoint> sendEndpointTask = control.GetSendEndpoint(new Uri($"{ConnectionProperties.HostAddress}/{ConnectionProperties.EndPoint}"));
