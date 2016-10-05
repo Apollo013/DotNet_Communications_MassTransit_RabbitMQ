@@ -13,6 +13,13 @@ Developed with Visual Studio 2015 Community
 |C#|
 |RabbitMQ|
 |MassTransit|
+|Unity|
+
+---
+
+####Scenario
+
+For this exercise the sender sends a 'Command' message to a central client, who in turn generates 'Event' messages that are then sent to other clients (sales, management, etc...)
 
 ---
 
@@ -21,7 +28,7 @@ Developed with Visual Studio 2015 Community
 |-------|
 | Command & Event message types |
 | Publishing strongly typed messages |
-| Dependency Injection with injection of a 'dummy' repository |
+| Dependency Injection|
 | Retry policies |
 | Fault handling |
 
