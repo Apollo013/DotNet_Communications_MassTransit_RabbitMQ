@@ -76,6 +76,9 @@ namespace MassTransit.Client
             // Register a message receiver observer
             control.ConnectReceiveObserver(new MessageReceiveObserver());
 
+            // Register a message consumer observer
+            control.ConnectConsumeObserver(new MessageConsumeObserver());
+
             // Wait for commands
             Console.ReadKey();
 
