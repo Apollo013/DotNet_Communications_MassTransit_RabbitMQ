@@ -9,7 +9,7 @@ Developed with Visual Studio 2015 Community
 
 ####Scenario
 
-For this exercise the sender sends a 'Command' message to a central client, who in turn generates 'Event' messages that are cascaded to other clients (sales, management, etc...)
+For this exercise the sender sends a 'Command' message (a new customer record) to a central client, who in turn processes the new customer and generates 'Event' messages that are cascaded to other clients (sales, management, etc...)
 
 ---
 
