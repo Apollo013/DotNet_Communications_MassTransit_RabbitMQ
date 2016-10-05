@@ -7,16 +7,6 @@ Developed with Visual Studio 2015 Community
 
 ---
 
-###Techs
-|Tech|
-|----|
-|C#|
-|RabbitMQ|
-|MassTransit|
-|Unity|
-
----
-
 ####Scenario
 
 For this exercise the sender sends a 'Command' message to a central client, who in turn generates 'Event' messages that are then sent to other clients (sales, management, etc...)
@@ -26,6 +16,16 @@ For this exercise the sender sends a 'Command' message to a central client, who 
 ####Fault Handling
 
 To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomService' class and execute the 'RunTransitFaultPublisher' method from the sender 'Program'.
+
+---
+
+###Techs
+|Tech|
+|----|
+|C#|
+|RabbitMQ|
+|MassTransit|
+|Unity|
 
 ---
 
