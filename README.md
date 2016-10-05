@@ -67,8 +67,8 @@ Although we only looked at an 'IReceiveObserver' implementation, there are more 
 
 |Observer|Type|Description|
 |--------|----|-----------|
-|ISendObserver|Publisher-based||
-|IPublishObserver|Publisher-based||
+|ISendObserver|Publisher-based|intercept published and sent messages of any message type (non generic).|
+|IPublishObserver|Publisher-based|intercept published and sent messages of any message type (non generic).|
 |IReceiveObserver|Consumer-based|intercept any received message of any concrete type|
 |IConsumeObserver|Consumer-based| intercept any consumed message of any concrete type |
 |IConsumeMessageObserver(T)|Consumer-based|generic version of IConsumeObserver to intercept specific message types consumed|
