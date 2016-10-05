@@ -61,6 +61,20 @@ To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomS
 
 ---
 
+###Message Observers
+
+Although we only lookedt 'IReceiveObserver' implementation, there are more observers that could be utilized.
+
+|Observer|Type|Description|
+|--------|----|-----------|
+|ISendObserver|Publisher-based||
+|IPublishObserver|Publisher-based||
+|IReceiveObserver|Consumer-based|intercept any received message of any concrete type|
+|IConsumeObserver|Consumer-based| intercept any consumed message of any concrete type |
+|IConsumeMessageObserver(T)|Consumer-based|generic version of IConsumeObserver to intercept specific message types consumed|
+
+---
+
 ###Resources
 |Title|Author|Website|
 |-----|------|-------|
