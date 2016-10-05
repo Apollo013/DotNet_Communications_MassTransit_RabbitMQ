@@ -12,6 +12,17 @@ Developed with Visual Studio 2015 Community
 For this exercise the sender sends a 'Command' message (a new customer record) to a central client, who in turn processes the new customer and generates an 'Event' message that is cascaded out to other clients (sales, management, etc...)
 
 ---
+####Sending, receiving and observing 'command' messages
+
+Run the 'MassTransit.Client' project and then run the 'MassTransit.Publisher' project.
+
+---
+
+####Sending, receiving 'event' messages
+
+Run the 'MassTransit.Client', 'MassTransit.Client.Sales', 'MassTransit.Client.Management' projects and then run the 'MassTransit.Publisher' project.
+
+---
 
 ####Fault Handling
 
@@ -37,6 +48,7 @@ To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomS
 | Dependency Injection|
 | Retry policies |
 | Fault handling |
+|Observing received messages with 'IReceiveObserver' |
 
 ---
 
