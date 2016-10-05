@@ -57,7 +57,7 @@ To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomS
 |-------|-----------|
 |MassTransit.Company| Contains our message contracts (command & event), a dummy repository and connection properties class |
 |MassTransit.Publisher| Responisble for publishing messages to all receivers |
-|MassTransit.Client.?| Clients who receive and handle the messages |
+|MassTransit.Client.(?)| Clients who receive and handle the messages |
 
 ---
 
