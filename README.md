@@ -63,7 +63,7 @@ To Test Fault Handling, uncomment line 33 in 'MassTransit.Client.RegisterCustomS
 
 ###Message Observers
 
-Although we only looked at 'IReceiveObserver' implementation, there are more observers that could be utilized.
+Although we only looked at an 'IReceiveObserver' implementation, there are more observers that could be utilized.
 
 |Observer|Type|Description|
 |--------|----|-----------|
