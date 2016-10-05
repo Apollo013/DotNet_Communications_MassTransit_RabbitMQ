@@ -14,13 +14,11 @@ namespace MassTransit.Client
             Console.Title = "Receiver.";
             Console.WriteLine("CUSTOMER REGISTRATION COMMAND RECEIVER.");
             RunTransitReceiver();
-           // RunTransitFaultReceiver();
+            // RunTransitFaultReceiver();
         }
 
         private static void RunTransitReceiver()
         {
-            // RunTransitFaultReceiver();
-
             // IoC - Register Repository
             var container = new Container(conf =>
             {
@@ -47,7 +45,7 @@ namespace MassTransit.Client
                         ConnectionProperties.EndPoint,
                         cfgr =>
                         {
-                            cfgr.Consumer<RegisterCustomerService>(container);
+                            cfgr.Consumer<RegisterCustomerService>(container); // Inject repository
                             cfgr.Consumer<RegisterDomainService>();
 
                             /******* THE FOLLOWING RETRY POLICIES ARE BASED ON THE OCCURANCE OF EXCEPTIONS ******/

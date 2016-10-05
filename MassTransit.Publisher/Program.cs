@@ -89,6 +89,7 @@ namespace MassTransit.Publisher
                     Type = 1,
                     DefaultDiscount = 0
                 },
+                // Specify a callback in the event of an error
                 callback => callback.FaultAddress = new Uri($"{ConnectionProperties.HostAddress}/{ConnectionProperties.FaultEndPoint}")
             );
 
