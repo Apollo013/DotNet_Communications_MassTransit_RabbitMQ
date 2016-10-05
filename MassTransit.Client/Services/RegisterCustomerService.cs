@@ -27,7 +27,8 @@ namespace MassTransit.Client.Services
         {
             // Execute the command (here we simply output the message)
             IRegisterCustomer customer = context.Message;
-            Console.WriteLine($"New Customer for registration: {customer.Name}");
+            Console.WriteLine();
+            Console.WriteLine($"[RegisterCustomerService]: New Customer for registration: {customer.Name}");
 
             // The following is only used to test retry policies
             // throw new ArgumentException("We'll pretend that an exception was thrown...");  // COMMENT TO AVOID FURTHER EXCEPTION THROWING

@@ -7,7 +7,8 @@ namespace MassTransit.Company.Repositories
     {
         public void Save(Customer customer)
         {
-            Console.WriteLine(string.Concat($"The concrete customer repository was called for customer {customer.Name}"));
+            Console.WriteLine();
+            Console.WriteLine($"[CustomerRepository]: The concrete customer repository was called for customer {customer.Name}");
         }
     }
 }

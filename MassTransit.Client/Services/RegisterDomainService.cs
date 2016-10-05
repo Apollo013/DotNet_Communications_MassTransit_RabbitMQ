@@ -8,7 +8,8 @@ namespace MassTransit.Client.Services
     {
         public Task Consume(ConsumeContext<IRegisterDomain> context)
         {
-            Console.WriteLine($"New domain registered. Target and importance: {context.Message.Target} - {context.Message.Importance}");
+            Console.WriteLine();
+            Console.WriteLine($"[RegisterDomainService]: New domain registered. Target and importance: {context.Message.Target} - {context.Message.Importance}");
             return Task.FromResult<IRegisterDomain>(context.Message);
         }
     }

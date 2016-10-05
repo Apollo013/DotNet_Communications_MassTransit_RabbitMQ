@@ -1,4 +1,5 @@
-﻿using MassTransit.Client.Services;
+﻿using MassTransit.Client.Observers;
+using MassTransit.Client.Services;
 using MassTransit.Company.Configuration;
 using MassTransit.Company.Repositories;
 using MassTransit.RabbitMqTransport;
@@ -71,6 +72,9 @@ namespace MassTransit.Client
 
             // Start listening
             control.Start();
+
+            // Register a message receiver observer
+            control.ConnectReceiveObserver(new MessageReceiveObserver());
 
             // Wait for commands
             Console.ReadKey();
