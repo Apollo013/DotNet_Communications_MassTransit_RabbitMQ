@@ -34,6 +34,7 @@ namespace MassTransit.Publisher
                 }
             );
 
+            // Register Send Observer
             control.ConnectSendObserver(new SendObjectObserver());
 
             // Create a task that allows us to send the command to a specified queue.
