@@ -1,5 +1,5 @@
 # DotNet_Communications_MassTransit_RabbitMQ
-This app demonstrates a 'light-weight' Enterprise Service Bus implementation using MassTransit for connecting distributed systems
+A .Net solution demonstrating a 'light-weight' Enterprise Service Bus implementation using MassTransit for connecting distributed systems.
 
 ---
 
